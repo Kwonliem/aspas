@@ -1,7 +1,7 @@
 <script setup>
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
-// 1. Tangkap props 'status' dari Controller (PENTING untuk pesan verifikasi)
+
 defineProps({
     canResetPassword: {
         type: Boolean,

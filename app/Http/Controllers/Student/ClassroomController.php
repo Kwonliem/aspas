@@ -16,7 +16,7 @@ class ClassroomController extends Controller
         $user = $request->user();
         
         $enrollment = $user->enrolledCourses()
-            ->withPivot('progress', 'completed_data', 'created_at') // DITAMBAHKAN: created_at untuk hitung expired
+            ->withPivot('progress', 'completed_data', 'created_at') 
             ->where('course_id', $course->id)
             ->first();
 
@@ -25,15 +25,15 @@ class ClassroomController extends Controller
         $progress = $enrollment->pivot->progress;
         $expiredAt = null;
 
-        // LOGIKA TIMER: Cek jika course memiliki batas waktu
+        
         if ($course->duration_days > 0) {
             $expirationDate = $enrollment->pivot->created_at->addDays($course->duration_days);
             $expiredAt = $expirationDate->format('M d, Y H:i');
             
-            // Jika sudah lewat waktu DAN belum 100%, tendang muridnya
+            
             if (now()->greaterThan($expirationDate) && $progress < 100) {
                 $user->enrolledCourses()->detach($course->id);
-                // Redirect ke My Learning dengan pesan gagal (Bisa disesuaikan route-nya)
+                
                 return redirect()->route('classroom.my-courses')->with('error', 'Waktu course telah habis. Silakan enroll ulang.');
             }
         }
@@ -49,7 +49,7 @@ class ClassroomController extends Controller
             'course' => $course,
             'progress' => $progress,
             'completedData' => $completedData,
-            'expiredAt' => $progress < 100 ? $expiredAt : null // Kirim info expired ke Vue jika belum lulus
+            'expiredAt' => $progress < 100 ? $expiredAt : null 
         ]);
     }
 
@@ -58,11 +58,11 @@ class ClassroomController extends Controller
         $user = $request->user();
         
         $enrollment = $user->enrolledCourses()
-            ->withPivot('progress', 'completed_data', 'created_at') // DITAMBAHKAN: created_at
+            ->withPivot('progress', 'completed_data', 'created_at') 
             ->where('course_id', $course->id)
             ->first();
 
-        // LOGIKA TIMER: Cek ulang sebelum memproses progress baru
+       
         if ($course->duration_days > 0) {
             $expirationDate = $enrollment->pivot->created_at->addDays($course->duration_days);
             if (now()->greaterThan($expirationDate) && $enrollment->pivot->progress < 100) {

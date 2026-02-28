@@ -19,7 +19,7 @@ const startTimer = (seconds = 60) => {
     countdown.value = seconds;
     const expiryTime = Date.now() + (seconds * 1000);
     
-    // Simpan ke localStorage dengan format spesifik untuk user ini
+    
     localStorage.setItem(`verification_cooldown_${user.value.id}`, expiryTime);
 
     timerInterval = setInterval(() => {
@@ -44,7 +44,7 @@ const startPolling = () => {
             preserveState: true,
             preserveScroll: true,
             onSuccess: () => {
-                // JIKA BERHASIL VERIFIKASI:
+                
                 if (user.value.email_verified_at) {
                     clearAllIntervals();
                     localStorage.removeItem(`verification_cooldown_${user.value.id}`);

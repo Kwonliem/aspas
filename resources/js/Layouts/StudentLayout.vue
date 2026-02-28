@@ -9,7 +9,7 @@ const logout = () => {
     router.post(route('logout'));
 };
 
-// Menu Khusus Student (Setting dipisah ke bagian bawah seperti TeacherLayout)
+
 const navItems = [
     { name: 'Dashboard', route: 'dashboard', icon: 'dashboard' },
     { name: 'My Course', route: 'classroom.my-courses', icon: 'book' },
@@ -25,7 +25,7 @@ const pageTitle = computed(() => {
     return 'Student Leaderboard';
 });
 
-// Helper untuk mengecek route aktif
+
 const isActive = (routeName) => {
     if (!routeName) return false;
     try {
@@ -35,7 +35,7 @@ const isActive = (routeName) => {
     }
 };
 
-// --- TAMBAHAN LOGIKA UNTUK RESPONSIVE (MOBILE MENU) ---
+
 const isMobileMenuOpen = ref(false);
 
 router.on('navigate', () => {
@@ -166,7 +166,7 @@ router.on('navigate', () => {
 </template>
 
 <style scoped>
-/* Agar scrollbar sidebar dan konten tidak kaku di Windows */
+
 .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
 }

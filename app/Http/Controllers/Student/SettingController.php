@@ -11,7 +11,7 @@ use App\Models\DeletionRequest;
 
 class SettingController extends Controller
 {
-    // 1. Tampilkan Halaman Setting
+    
     public function index(Request $request)
     {
         return Inertia::render('Student/Settings', [
@@ -19,7 +19,7 @@ class SettingController extends Controller
         ]);
     }
 
-    // 2. Update Profile (Nama, Email, Class, Bio, Avatar)
+    
     public function updateProfile(Request $request)
     {
         $user = $request->user();
@@ -32,16 +32,15 @@ class SettingController extends Controller
             'avatar' => 'nullable|image|max:2048',
         ]);
 
-        // Jika email berubah, cabut status verifikasi & matikan kirim email otomatis
+        
         if ($validated['email'] !== $user->email) {
             $user->email_verified_at = null;
             $user->email = $validated['email'];
             
-            // 👇 DIMATIKAN AGAR TIDAK ERROR SMTP DAN TIDAK NGIRIM OTOMATIS 👇
-            // $user->sendEmailVerificationNotification();
+            
         }
 
-        // Handle Avatar Upload
+        
         if ($request->hasFile('avatar')) {
             if ($user->avatar) {
                 $oldPath = str_replace('/storage/', '', $user->avatar);
@@ -65,7 +64,7 @@ class SettingController extends Controller
         return redirect()->back();
     }
 
-    // 3. Hapus Avatar
+    
     public function destroyAvatar(Request $request)
     {
         $user = $request->user();
@@ -82,7 +81,7 @@ class SettingController extends Controller
         return redirect()->back();
     }
 
-    // 4. Request Deletion (Hapus Akun)
+   
     public function requestDeletion(Request $request)
     {
         $request->validate([
@@ -92,7 +91,7 @@ class SettingController extends Controller
 
         $user = $request->user();
 
-        // Cek apakah sudah pernah request sebelumnya
+        
         if ($user->deletionRequest()->exists()) {
             return back()->withErrors(['reason' => 'You already have a pending deletion request.']);
         }

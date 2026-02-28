@@ -142,14 +142,10 @@ onUnmounted(() => document.removeEventListener('click', closeDropdown));
 
         <section class="relative pt-24 pb-16 md:pt-32 md:pb-20 lg:pt-48 lg:pb-32 overflow-hidden" id="home">
             <div class="absolute top-0 right-0 w-[400px] h-[400px] md:w-[800px] md:h-[800px] bg-gradient-to-b from-[#ffde24]/20 to-transparent rounded-full blur-[80px] md:blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-blue-500/5 rounded-full blur-[60px] md:blur-[100px] pointer-events-none"></div>
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left">
                 <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
-                    
-                    <div class="max-w-2xl text-center lg:text-left animate-fade-in-up mt-8 md:mt-0">
-                        
-
+                    <div class="max-w-2xl animate-fade-in-up">
                         <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black text-gray-900 dark:text-white leading-[1.15] md:leading-[1.1] mb-4 md:mb-6 tracking-tight">
                             Master Skills. <br class="hidden sm:block" />
                             <span class="text-[#ffde24] relative inline-block mt-1 md:mt-2">
@@ -167,18 +163,17 @@ onUnmounted(() => document.removeEventListener('click', closeDropdown));
                             <Link :href="route('register')" class="w-full sm:w-auto bg-[#111] hover:bg-black dark:bg-[#ffde24] dark:hover:bg-[#eacb1e] text-white dark:text-black font-bold py-3.5 md:py-4 px-6 md:px-8 rounded-xl transition-all transform hover:-translate-y-1 text-center shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-sm md:text-base">
                                 Start Learning Now <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                             </Link>
-                            <button @click="scrollToSection('courses')" class="w-full sm:w-auto px-6 md:px-8 py-3.5 md:py-4 rounded-xl border-2 border-gray-200 dark:border-white/10 text-gray-700 dark:text-white font-bold hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-center text-sm md:text-base">
+                            <button @click="scrollToSection('courses')" class="px-6 md:px-8 py-3.5 md:py-4 rounded-xl border-2 border-gray-200 dark:border-white/10 text-gray-700 dark:text-white font-bold hover:bg-gray-50 dark:hover:bg-white/5 transition-colors text-center text-sm md:text-base">
                                 Explore Courses
                             </button>
                         </div>
                     </div>
 
-                    <div class="relative h-[350px] sm:h-[450px] lg:h-[500px] flex items-center justify-center animate-fade-in-left delay-200 w-full">
-                        <div class="relative w-full max-w-sm md:max-w-md lg:max-w-full h-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 dark:border-white/5">
+                    <div class="relative h-[350px] sm:h-[450px] lg:h-[500px] animate-fade-in-left delay-200">
+                        <div class="relative w-full h-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 dark:border-white/5">
                             <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1471&auto=format&fit=crop" alt="Students learning" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                            
-                            <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 bg-white/95 dark:bg-[#1a1a1a]/95 backdrop-blur-md p-4 md:p-5 rounded-2xl shadow-lg flex items-center gap-3 md:gap-4 animate-slide-up border border-white/20">
+                            <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 bg-white/95 dark:bg-[#1a1a1a]/95 backdrop-blur-md p-4 md:p-5 rounded-2xl shadow-lg flex items-center gap-4 border border-white/20">
                                 <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 flex-shrink-0">
                                     <span class="material-symbols-outlined text-xl md:text-2xl">code</span>
                                 </div>
@@ -189,94 +184,123 @@ onUnmounted(() => document.removeEventListener('click', closeDropdown));
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
         <section class="py-16 md:py-24 bg-white dark:bg-[#1a1a1a] border-y border-gray-100 dark:border-white/5" id="courses">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 md:mb-12 gap-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-10 md:mb-16 gap-4">
                     <div>
-                        <h2 class="text-2xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight mb-1 md:mb-2">Popular Courses</h2>
-                        <p class="text-sm md:text-base text-gray-500 font-medium">Explore our highest-rated published curriculums.</p>
+                        <h2 class="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight mb-2 md:mb-4">Popular Courses</h2>
+                        <p class="text-sm md:text-lg text-gray-500 font-medium">Explore our highest-rated published curriculums.</p>
                     </div>
                     <Link :href="route('register')" class="hidden sm:flex items-center gap-2 text-xs md:text-sm font-bold text-gray-900 dark:text-white hover:text-[#ffde24] transition-colors group">
                         View All Categories 
                     </Link>
                 </div>
 
-                <div v-if="publishedCourses.length > 0" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+                <div v-if="publishedCourses.length > 0" class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-10">
                     
-                    <div v-for="course in publishedCourses" :key="course.id" class="group bg-[#fafafa] dark:bg-[#111] rounded-2xl md:rounded-[2rem] overflow-hidden border border-gray-200/80 dark:border-white/5 flex flex-col h-full hover:shadow-xl transition-all duration-300 md:hover:-translate-y-1 relative">
+                    <div v-for="course in publishedCourses" :key="course.id" class="group bg-[#fafafa] dark:bg-[#111] rounded-[2.5rem] border border-gray-200/80 dark:border-white/5 flex flex-col h-full hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
                         
-                        <div class="absolute top-3 left-3 md:top-4 md:left-4 z-10">
-                            <span class="bg-white/90 dark:bg-black/80 backdrop-blur-sm text-[9px] md:text-[10px] font-black px-2 md:px-3 py-1 md:py-1.5 rounded-lg shadow-sm text-gray-900 dark:text-white uppercase tracking-widest">
-                                {{ course.credits > 0 ? `${course.credits} Credits` : 'Free' }}
-                            </span>
-                        </div>
-
-                        <div class="relative h-40 md:h-48 overflow-hidden bg-gray-100">
-                            <img v-if="course.cover_image" :src="course.cover_image" :alt="course.title" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <div class="relative aspect-video overflow-hidden bg-gray-100">
+                            <img v-if="course.cover_image" :src="course.cover_image" :alt="course.title" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
                             <div v-else class="w-full h-full flex items-center justify-center text-gray-300 bg-gray-100">
-                                <span class="material-symbols-outlined text-4xl md:text-5xl">image</span>
+                                <span class="material-symbols-outlined text-6xl md:text-7xl">image</span>
+                            </div>
+                            
+                            <div class="absolute top-5 left-5 z-10">
+                                <span class="bg-black/80 backdrop-blur-md text-white text-[10px] md:text-xs font-black px-4 py-2 rounded-xl shadow-lg uppercase tracking-widest">
+                                    {{ course.credits > 0 ? `${course.credits} Credits` : 'Free' }}
+                                </span>
                             </div>
                         </div>
 
-                        <div class="p-5 md:p-6 flex-1 flex flex-col">
-                            <div class="flex items-center gap-2 mb-3 md:mb-4">
-                                <div class="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gray-200 overflow-hidden border border-white">
+                        <div class="p-8 md:p-10 flex-1 flex flex-col">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-200 overflow-hidden border-2 border-white shadow-sm shrink-0">
                                     <img v-if="course.teacher?.avatar" :src="course.teacher.avatar" class="w-full h-full object-cover">
-                                    <div v-else class="w-full h-full flex items-center justify-center text-[9px] md:text-[10px] font-bold text-gray-500 bg-white">
+                                    <div v-else class="w-full h-full flex items-center justify-center text-sm font-black text-gray-500 bg-white">
                                         {{ course.teacher?.name?.charAt(0) }}
                                     </div>
                                 </div>
-                                <span class="text-[10px] md:text-xs font-bold text-gray-500 truncate">{{ course.teacher?.name || 'Unknown' }}</span>
+                                <div>
+                                    <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5">Instructor</p>
+                                    <p class="text-sm md:text-base font-bold text-gray-900 dark:text-white truncate">{{ course.teacher?.name || 'Unknown' }}</p>
+                                </div>
                             </div>
 
-                            <h3 class="text-base md:text-lg font-black text-gray-900 dark:text-white mb-2 leading-tight line-clamp-2 group-hover:text-[#e0c218] transition-colors">
+                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 dark:text-white mb-4 leading-tight group-hover:text-[#ffde24] transition-colors line-clamp-2">
                                 {{ course.title }}
                             </h3>
-                            <p class="text-xs md:text-sm text-gray-500 line-clamp-2 mb-5 md:mb-6 font-medium">
+                            <p class="text-sm md:text-base text-gray-500 line-clamp-3 mb-8 font-medium leading-relaxed">
                                 {{ course.description }}
                             </p>
 
-                            <div class="flex items-center justify-between text-[10px] md:text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-5 md:mb-6 mt-auto px-1">
-                                <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] md:text-[16px]">menu_book</span> {{ course.lessons_count || 0 }}</div>
-                                <div class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] md:text-[16px]">quiz</span> {{ course.quizzes_count || 0 }}</div>
-                                <div class="flex items-center gap-1 text-yellow-600"><span class="material-symbols-outlined text-[14px] md:text-[16px]">stars</span> {{ course.xp }}</div>
+                            <div class="grid grid-cols-3 gap-4 border-t border-gray-100 dark:border-white/5 pt-8 mt-auto mb-8">
+                                <div class="flex flex-col items-center p-3 rounded-2xl bg-gray-50 dark:bg-white/5">
+                                    <span class="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Materi</span>
+                                    <span class="text-base md:text-lg font-black text-gray-900 dark:text-white flex items-center gap-1.5">
+                                        
+                                        {{ course.lessons_count || 0 }}
+                                    </span>
+                                </div>
+                                <div class="flex flex-col items-center p-3 rounded-2xl bg-gray-50 dark:bg-white/5">
+                                    <span class="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Quizzes</span>
+                                    <span class="text-base md:text-lg font-black text-gray-900 dark:text-white flex items-center gap-1.5">
+                                        
+                                        {{ course.quizzes_count || 0 }}
+                                    </span>
+                                </div>
+                                <div class="flex flex-col items-center p-3 rounded-2xl bg-yellow-50 dark:bg-yellow-900/20">
+                                    <span class="text-[9px] md:text-[10px] font-black text-yellow-600/70 dark:text-yellow-400/70 uppercase tracking-widest mb-2">Rewards</span>
+                                    <span class="text-base md:text-lg font-black text-yellow-600 dark:text-yellow-400 flex items-center gap-1.5">
+                                       
+                                        {{ course.xp }} XP
+                                    </span>
+                                </div>
                             </div>
 
-                            <div class="mt-auto">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <a href="#" class="bg-white dark:bg-[#1a1a1a] border-2 border-gray-200 dark:border-white/10 text-gray-900 dark:text-white font-bold py-4 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-all flex items-center justify-center text-xs uppercase tracking-widest shadow-sm hover:border-gray-300 dark:hover:border-white/30">
+                                    View Details
+                                </a>
+                                
                                 <template v-if="user">
                                     <Link v-if="user.role === 'admin' || (user.role === 'teacher' && course.teacher_id === user.id)"
                                         :href="route('teacher.courses.manage', course.id)"
-                                        class="block w-full bg-white dark:bg-[#1a1a1a] border-2 border-gray-200 dark:border-white/10 text-gray-900 dark:text-white font-bold py-2.5 md:py-3 px-4 rounded-xl hover:border-gray-400 transition-colors text-center text-xs md:text-sm">
+                                        class="bg-[#111] text-white font-bold py-4 rounded-2xl hover:bg-black transition-all flex items-center justify-center text-xs uppercase tracking-widest shadow-lg shadow-gray-900/20 hover:shadow-xl transform active:scale-95">
                                         Manage Course
                                     </Link>
-                                    <button v-else-if="user.role === 'teacher'" disabled class="block w-full bg-gray-100 border-2 border-transparent text-gray-400 font-bold py-2.5 md:py-3 px-4 rounded-xl cursor-not-allowed text-center text-xs md:text-sm">
-                                        Not Your Course
-                                    </button>
-                                    <button v-else @click="enrollCourse(course.id)" class="block w-full bg-[#111] hover:bg-black dark:bg-[#ffde24] dark:hover:bg-[#eacb1e] text-white dark:text-black font-bold py-2.5 md:py-3 px-4 rounded-xl transition-all text-center text-xs md:text-sm transform active:scale-95 shadow-sm">
+                                    
+                                    <button v-else-if="user.role === 'student'" @click="enrollCourse(course.id)" 
+                                        class="bg-[#ffde24] hover:bg-[#eacb1e] text-black font-bold py-4 rounded-2xl transition-all flex items-center justify-center text-xs uppercase tracking-widest shadow-lg shadow-yellow-500/30 hover:shadow-xl transform active:scale-95">
                                         Enroll Now
                                     </button>
+
+                                    <button v-else disabled class="bg-gray-100 text-gray-400 font-bold py-4 rounded-2xl cursor-not-allowed flex items-center justify-center text-xs uppercase tracking-widest border-2 border-transparent">
+                                        Private Course
+                                    </button>
                                 </template>
-                                <Link v-else :href="route('login')" class="block w-full bg-white border-2 border-gray-200 text-gray-900 font-bold py-2.5 md:py-3 px-4 rounded-xl hover:bg-gray-50 transition-colors text-center text-xs md:text-sm">
-                                    Login to Enroll
+
+                                <Link v-else :href="route('login')" class="bg-[#ffde24] hover:bg-[#eacb1e] text-black font-bold py-4 rounded-2xl transition-all flex items-center justify-center text-xs uppercase tracking-widest shadow-lg shadow-yellow-500/30 hover:shadow-xl transform active:scale-95">
+                                    Get Started
                                 </Link>
                             </div>
+
                         </div>
                     </div>
 
                 </div>
 
-                <div v-else class="text-center py-16 md:py-24 bg-[#fafafa] dark:bg-[#111] rounded-3xl border border-gray-200 dark:border-white/5">
-                    <span class="material-symbols-outlined text-3xl md:text-4xl text-gray-300 mb-2 md:mb-3">school</span>
-                    <h3 class="text-base md:text-lg font-bold text-gray-900 dark:text-white">Curriculum in Progress</h3>
-                    <p class="text-gray-500 mt-1 text-xs md:text-sm font-medium">Our experts are preparing the best materials. Stay tuned!</p>
+                <div v-else class="text-center py-24 bg-gray-50 dark:bg-[#111] rounded-[3rem] border-2 border-dashed border-gray-200 dark:border-white/5">
+                    <span class="material-symbols-outlined text-6xl text-gray-200 mb-4">school</span>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white">Curriculums Coming Soon</h3>
+                    <p class="text-gray-500 mt-2 text-sm font-medium">Our expert instructors are crafting the next generation of materials.</p>
                 </div>
 
-                <div class="mt-8 text-center sm:hidden">
+                <div class="mt-10 text-center sm:hidden">
                     <Link :href="route('register')" class="inline-flex items-center text-sm text-gray-900 font-bold hover:text-[#ffde24] transition-colors border-b-2 border-gray-900 pb-0.5">
                         View All Categories
                     </Link>
@@ -371,18 +395,10 @@ onUnmounted(() => document.removeEventListener('click', closeDropdown));
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 .font-display {
     font-family: 'Lexend', sans-serif;
 }
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.animate-float-slow { animation: float 6s ease-in-out infinite; }
 
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -394,14 +410,8 @@ onUnmounted(() => document.removeEventListener('click', closeDropdown));
     to { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in-up { animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-.animate-fade-in-left { animation: fadeInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
-.animate-slide-up { animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; opacity: 0; }
+.animate-fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.animate-fade-in-left { animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
 
 .delay-200 { animation-delay: 200ms; }
 </style>

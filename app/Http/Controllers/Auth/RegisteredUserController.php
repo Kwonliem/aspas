@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered; // Hapus atau biarkan tidak terpakai
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,14 +41,11 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // --- BAGIAN INI BIANG KEROKNYA ---
-        // HAPUS atau KOMENTARI baris ini agar email TIDAK otomatis terkirim
-        // event(new Registered($user)); 
-        // ----------------------------------
+        
 
         Auth::login($user);
 
-        // Redirect ke halaman Verify Email (User akan melihat tombol "Send Verification Link" di sana)
+        
         return redirect()->route('verification.notice');
     }
 }

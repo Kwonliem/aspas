@@ -108,7 +108,7 @@ class ChallengeController extends Controller
 
         if ($oldStatus !== 'passed' && $newStatus === 'passed') {
             $student->increment('xp', $challenge->xp_reward);
-            // Pastikan Anda memiliki kolom 'credits' di tabel users
+            
             $student->increment('credits', $challenge->credit_reward);
         } elseif ($oldStatus === 'passed' && $newStatus !== 'passed') {
             $student->decrement('xp', $challenge->xp_reward);

@@ -15,7 +15,7 @@ class ChallengeController extends Controller
     {
         $user = $request->user();
         
-        // Ambil semua challenge dari database beserta status murid saat ini
+        
         $challenges = Challenge::with(['participants' => function($q) use ($user) {
                 $q->where('user_id', $user->id);
             }])
@@ -43,7 +43,7 @@ class ChallengeController extends Controller
 
     public function submit(Request $request, Challenge $challenge)
     {
-        // Cegah submit jika waktu sudah habis
+        
         if ($challenge->end_date->isPast()) {
             return back()->withErrors(['message' => 'Waktu challenge ini sudah habis.']);
         }
@@ -54,7 +54,7 @@ class ChallengeController extends Controller
 
         $user = $request->user();
         
-        // Simpan submission murid ke database tanpa menghapus data sebelumnya
+        
         $challenge->participants()->syncWithoutDetaching([
             $user->id => [
                 'submission_link' => $request->link,

@@ -170,7 +170,7 @@ const submit = () => {
     font-family: 'Lexend', sans-serif;
 }
 
-/* Custom scrollbar khusus untuk form register yang panjang */
+
 .custom-scrollbar::-webkit-scrollbar { width: 4px; }
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
 .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(156, 163, 175, 0.3); border-radius: 10px; }

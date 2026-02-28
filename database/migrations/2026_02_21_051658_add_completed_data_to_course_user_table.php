@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('course_user', function (Blueprint $table) {
-            // Kolom JSON untuk menyimpan daftar lesson/quiz yg selesai & link project
+            
             $table->json('completed_data')->nullable()->after('progress');
         });
     }

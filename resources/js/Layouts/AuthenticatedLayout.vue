@@ -10,7 +10,7 @@ import { Link, usePage } from '@inertiajs/vue3';
 const showingNavigationDropdown = ref(false);
 const page = usePage();
 
-// LOGIKA BARU: Tentukan route dashboard berdasarkan role
+
 const dashboardRoute = computed(() => {
     const role = page.props.auth.user.role;
     
@@ -20,7 +20,7 @@ const dashboardRoute = computed(() => {
         return 'teacher.dashboard';
     }
     
-    // Fallback jika ada role lain (misal: student) atau route 'dashboard' biasa masih ada
+    
     return 'dashboard'; 
 });
 </script>

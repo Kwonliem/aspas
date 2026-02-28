@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('submissions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete(); // Siswa
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete(); 
             $table->foreignId('course_id')->constrained()->cascadeOnDelete();
-            // Jika ada assignment table, hubungkan. Jika ini untuk Final Project course, bisa nullable.
-            $table->string('title'); // Judul tugas/submission
-            $table->text('content')->nullable(); // Deskripsi atau teks jawaban
-            $table->string('file_path')->nullable(); // File yang diupload
+            
+            $table->string('title'); 
+            $table->text('content')->nullable(); 
+            $table->string('file_path')->nullable(); 
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
-            $table->integer('grade')->nullable(); // Nilai
-            $table->text('feedback')->nullable(); // Feedback guru
+            $table->integer('grade')->nullable(); 
+            $table->text('feedback')->nullable(); 
             $table->timestamps();
         });
     }

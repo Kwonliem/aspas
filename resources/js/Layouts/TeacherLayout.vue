@@ -25,7 +25,7 @@ const pageTitle = computed(() => {
     return 'Teacher Panel';
 });
 
-// --- TAMBAHAN LOGIKA UNTUK RESPONSIVE (MOBILE MENU) ---
+
 const isMobileMenuOpen = ref(false);
 
 router.on('navigate', () => {
@@ -143,7 +143,7 @@ router.on('navigate', () => {
 </template>
 
 <style scoped>
-/* Custom scrollbar untuk sidebar/konten agar lebih clean */
+
 .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
 }

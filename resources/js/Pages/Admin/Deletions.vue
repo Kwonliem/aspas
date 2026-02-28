@@ -2,7 +2,7 @@
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import { Head, router, Link } from '@inertiajs/vue3';
 
-// Menerima dua prop terpisah dari Controller
+
 defineProps({
     studentRequests: Object,
     teacherRequests: Object
@@ -249,7 +249,7 @@ const reject = (id) => {
     overflow: hidden;
 }
 
-/* Custom scrollbar untuk tabel overflow horizontal */
+
 .custom-scrollbar::-webkit-scrollbar { height: 6px; }
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
 .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(229, 231, 235, 1); border-radius: 10px; }

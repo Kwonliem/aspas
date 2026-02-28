@@ -25,7 +25,7 @@ const pageTitle = computed(() => {
     return 'Admin Panel';
 });
 
-// --- TAMBAHAN LOGIKA UNTUK RESPONSIVE (MOBILE MENU) ---
+
 const isMobileMenuOpen = ref(false);
 
 router.on('navigate', () => {
@@ -129,7 +129,7 @@ router.on('navigate', () => {
 </template>
 
 <style scoped>
-/* Agar scrollbar sidebar dan konten tidak kaku di Windows */
+
 .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
 }

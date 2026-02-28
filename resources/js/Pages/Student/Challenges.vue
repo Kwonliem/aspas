@@ -16,7 +16,7 @@ const form = useForm({
 const activeChallenge = ref(null);
 const showSubmitModal = ref(false);
 
-// Pisahkan challenge yang masih aktif dan yang sudah lewat
+
 const activeChallengesList = computed(() => props.challenges.filter(c => !c.is_expired));
 const pastChallengesList = computed(() => props.challenges.filter(c => c.is_expired));
 

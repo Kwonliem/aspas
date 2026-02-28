@@ -276,7 +276,7 @@ const closeModal = () => {
     font-family: 'Inter', sans-serif;
 }
 
-/* Custom scrollbar untuk tabel overflow horizontal */
+
 .custom-scrollbar::-webkit-scrollbar { height: 6px; }
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
 .custom-scrollbar::-webkit-scrollbar-thumb { background-color: rgba(229, 231, 235, 1); border-radius: 10px; }

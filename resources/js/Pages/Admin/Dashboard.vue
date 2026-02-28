@@ -164,7 +164,7 @@ defineProps({
     font-family: 'Inter', sans-serif;
 }
 
-/* Custom scrollbar untuk list teacher jika panjang */
+
 .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
 }
@@ -172,10 +172,10 @@ defineProps({
     background: transparent;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: rgba(229, 231, 235, 1); /* gray-200 */
+    background-color: rgba(229, 231, 235, 1); 
     border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(209, 213, 219, 1); /* gray-300 */
+    background-color: rgba(209, 213, 219, 1); 
 }
 </style>

@@ -23,7 +23,7 @@ const updateProfile = () => {
 };
 
 const updatePassword = () => {
-    // FIX: Jangan auto-fill konfirmasi. Biarkan user yang isi.
+    
     passwordForm.put(route('password.update'), {
         preserveScroll: true,
         onSuccess: () => {

@@ -45,23 +45,23 @@ class TeacherController extends Controller
 
     public function store(Request $request)
     {
-        // 1. Validasi Input
+        
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'subject' => 'nullable|string|max:100', // Sesuaikan jika wajib/tidak
+            'subject' => 'nullable|string|max:100', 
         ]);
 
-        // 2. Buat User Baru
+        
         User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
-            'role' => 'teacher',       // Set role teacher
+            'role' => 'teacher',       
             'subject' => $validated['subject'] ?? null,
 
-            // KUNCI UTAMA: Set waktu verifikasi ke 'sekarang'
+            
             'email_verified_at' => now(),
         ]);
 

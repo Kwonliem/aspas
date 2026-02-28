@@ -17,7 +17,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::where('teacher_id', auth()->id())
-            // PERBAIKAN 1: Ganti 'projects' menjadi 'project'
+            
             ->with(['chapters.lessons', 'chapters.quizzes', 'project'])
             ->latest()
             ->get()
@@ -28,7 +28,7 @@ class CourseController extends Controller
                     'description' => $course->description,
                     'credits' => $course->credits,
                     'xp' => $course->xp,
-                    'duration_days' => $course->duration_days, // Ditambahkan
+                    'duration_days' => $course->duration_days, 
                     'image' => $course->cover_image ? asset($course->cover_image) : null,
                     'status' => ucfirst($course->status),
                     'statusColor' => $course->status === 'published' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-800',
@@ -36,10 +36,10 @@ class CourseController extends Controller
                     'lessons_count' => $course->chapters->flatMap->lessons->count(),
                     'quizzes_count' => $course->chapters->flatMap->quizzes->count(),
                     
-                    // PERBAIKAN 2: Cek apakah project ada, jika ada maka 1, jika tidak 0
+                    
                     'project_count' => $course->project ? 1 : 0, 
                     
-                    'students_count' => 0, // Placeholder
+                    'students_count' => 0, 
                 ];
             });
 
@@ -55,7 +55,7 @@ class CourseController extends Controller
             'description' => 'required|string',
             'credits' => 'required|integer|min:0',
             'xp' => 'required|integer|min:0',
-            'duration_days' => 'required|integer|min:0', // Ditambahkan
+            'duration_days' => 'required|integer|min:0', 
             'status' => 'required|in:draft,published',
             'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -67,7 +67,7 @@ class CourseController extends Controller
             'description' => $request->description,
             'credits' => $request->credits,
             'xp' => $request->xp,
-            'duration_days' => $request->duration_days, // Ditambahkan
+            'duration_days' => $request->duration_days, 
             'status' => $request->status,
         ];
 
@@ -114,7 +114,7 @@ class CourseController extends Controller
                 }])
                 ->orderBy('order')
                 ->get(),
-            // PERBAIKAN 3: Ganti 'projects()->first()' menjadi properti 'project' langsung
+           
             'project' => $course->project 
         ]);
     }
@@ -128,7 +128,7 @@ class CourseController extends Controller
             'description' => 'required|string',
             'credits' => 'required|integer|min:0',
             'xp' => 'required|integer|min:0',
-            'duration_days' => 'required|integer|min:0', // Ditambahkan
+            'duration_days' => 'required|integer|min:0', 
             'status' => 'required|in:draft,published',
             'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -139,7 +139,7 @@ class CourseController extends Controller
             'description' => $request->description,
             'credits' => $request->credits,
             'xp' => $request->xp,
-            'duration_days' => $request->duration_days, // Ditambahkan
+            'duration_days' => $request->duration_days, 
             'status' => $request->status,
         ];
 
@@ -214,7 +214,7 @@ class CourseController extends Controller
             }
         }
 
-        // PERBAIKAN 4: Logic Project (Singular)
+        
         if ($request->filled('project')) {
             $course->project()->updateOrCreate(
                 ['course_id' => $course->id], 
@@ -296,7 +296,7 @@ class CourseController extends Controller
     {
         if ($course->teacher_id !== auth()->id()) abort(403);
 
-        // PERBAIKAN 5: Ganti 'projects' menjadi 'project'
+        
         $course->load(['chapters' => function ($q) {
             $q->orderBy('order');
         }, 'chapters.lessons' => function ($q) {
